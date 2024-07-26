@@ -1,0 +1,84 @@
+header {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  background-color: white;
+  box-shadow: 0 4px 4px rgb(99, 99, 99, 25%);
+  font-size: 15px;
+  color: black;
+}
+
+.center {
+  margin: 0 20px;
+  height: fit-content;
+
+  a {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+}
+
+a {
+  text-decoration: none;
+  font-family: "Mulish", serif;
+  font-weight: bold;
+  color: inherit;
+  transition: color .2s cubic-bezier(.33, .66, .66, 1);
+}
+p{
+  text-align: center ;
+}
+
+.webook {
+  width: fit-content;
+  margin: 0 clamp(50px, 3vw, 115px);
+  color: black;
+  font-size: 35px;
+  font-weight: 900;
+  font-family: "Cinzel Decorative", serif;
+  font-style: normal;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+a:hover {
+  color: #ACD4D7;
+  font-weight: bolder;
+  //text-decoration: underline #ACD4D7;
+}
+
+.profileLink {
+  width: 140px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  img {
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+  }
+}
+
+label, #toggle {
+  display: none;
+}
+
+/* Media Queries */
+@media screen and (max-width: 700px) {
+  label {
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+  }
+}

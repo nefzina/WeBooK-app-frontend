@@ -1,0 +1,22 @@
+<div *ngIf="book" class="background_image_2">
+  <div class="book-container">
+    <h1> Livre enregistré</h1>
+    <div class="book-details">
+      <div class="book-image">
+        <img [src]="getBookCoverUrl(book.coverImage.filename)" [alt]="book.name" [title]="book.name" width="200">
+      </div>
+      <div class="book-info">
+        <p>Titre: {{book.name}}</p>
+        <p>Auteur: {{book.author}}</p>
+        <p>ISBN: {{book.isbn}}</p>
+        <p>Résumé: {{book.resume}}</p>
+        <p>Avis: {{book.review}}</p>
+        <p>Édition: {{book.edition}}</p>
+        <p>Catégorie: {{book.bookCategory?.type}}</p>
+      </div>
+    </div>
+    <div class="book-button">
+      <button [routerLink]="['/updateBook', book.id]" class="updateBook">Modifier</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<header>
+  <!--  <label>☰</label>-->
+  <!--  <input type="checkbox" id="toggle">-->
+  <!--  <mat-icon>public</mat-icon>-->
+  <!--  <span class="spacer"></span>-->
+
+  <div class="center" id="myLinks">
+    <a [routerLink]="['home']">Accueil</a>
+    <a [routerLink]="['recherche']">Recherche</a>
+    <span class="webook">WeBooK</span>
+    <a href="#">Conversation</a>
+    <a routerLinkActive="active" routerLink="/guide">Guide</a>
+  </div>
+
+  <!--  <a href="javascript:void(0);" class="icon" onclick="myFunction()">-->
+  <!--    <i class="fa fa-bars"></i>-->
+  <!--  </a>-->
+  <div class="profileLink">
+    <img class="miniature_profile" src="../../../assets/profile.png" alt="Profile Picture">
+    <a routerLinkActive="active" routerLink="/profile">Mon profil</a>
+    <a routerLinkActive="active" routerLink="/back-office">Admin</a>
+
+  </div>
+  <button (click)="onLogoff()">Deconnexion</button>
+</header>

@@ -1,0 +1,48 @@
+<div class="background_image_2">
+  <form [formGroup]="bookForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data" class="form-container">
+    <div class="form-title">
+      <h2>Pour ajouter un livre, veuillez renseignez les informations suivantes</h2>
+    </div>
+    <section class="section_1_discover">
+      <div class="form-row">
+        <div class="form-column">
+          <div class="card-body">
+            <label for="coverImage">Couverture du livre:</label><br>
+            <input type="file" id="coverImage" formControlName="coverImage" (change)="onFileSelected($event)"><br>
+            <img [src]="selectedImage" class="img-fluid rounded-0" alt="Cover Image" *ngIf="selectedImage"><br>
+            <hr>
+            <label for="resume">Résumé:</label><br>
+            <textarea id="resume" formControlName="resume"></textarea><br>
+            <label for="review">Commentaire:</label><br>
+            <textarea type="text" id="review" formControlName="review"></textarea><br>
+          </div>
+        </div>
+        <div class="form-column form-column-reduced">
+          <div class="card-body">
+            <label for="name">Titre du livre:</label><br>
+            <input type="text" id="name" formControlName="name"><br>
+            <label for="author">Auteur:</label><br>
+            <input type="text" id="author" formControlName="author"><br>
+            <label for="edition">Edition:</label><br>
+            <input type="text" id="edition" formControlName="edition"><br>
+            <label for="isbn">ISBN:</label><br>
+            <input type="text" id="isbn" formControlName="isbn"><br>
+
+            <label for="categoryId">Catégorie:</label><br>
+            <select id="categoryId" formControlName="categoryId">
+              <option *ngFor="let category of categories" [value]="category.id">{{ category.type }}</option>
+            </select><br>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <section class="section_2_menu d-flex flex-column justify-content-center align-items-center mt-5">
+      <nav class="container">
+        <div class="row d-flex justify-content-center mt-4">
+          <button type="submit">Enregistrer</button>
+        </div>
+      </nav>
+    </section>
+  </form>
+</div>

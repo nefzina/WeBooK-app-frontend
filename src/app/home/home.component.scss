@@ -1,0 +1,85 @@
+.container {
+  text-align: center;
+  //background-color: aqua;
+  width: 100%;
+}
+
+h1 {
+  color: #333;
+  font-family: "Cinzel Decorative", serif;
+  font-weight: bold;
+  text-align: left;
+  font-size: 40px;
+
+}
+
+p {
+  color: black;
+  font-family: "Mulish", serif;
+  text-align: left;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+}
+
+.container-presentation{
+  margin: 50px;
+  width: 35%;
+  height: auto;
+  position: relative;
+
+}
+.banner-img {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+
+  position: absolute;
+}
+
+button {
+  margin: 25px;
+  background-color: rgb(76, 162,168, 20%);
+  font-weight: bold;
+  font-family: "Mulish", serif;
+  color: black;
+  border: 1px solid #ACD4D7;
+  padding: 10px 20px;
+  text-align: center;
+  text-transform: uppercase;
+  box-shadow: 0 4px 4px rgb(99,99,99,25%), inset 0 4px rgb(99,99,99,5%);
+  transition: all 0.3s ease;
+
+}
+button:hover {
+  border-width: 2px;
+  transform: scale(1.25);
+}
+
+.container-titre-recommendation{
+  padding-left: 18%;
+  color: #333;
+  font-family: "Cinzel Decorative", serif;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: left;
+
+}
+.container-recommendation {
+  display: flex;
+  padding-right: 200px;
+  padding-left: 200px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.picture-book {
+  width: 175px;
+  height: auto;
+  transform: rotate3d(0, -2, 1, 20deg);
+  margin: 10px;
+  transition: filter 1000ms, transform 300ms;
+}
+.picture-book:hover {
+  transform: scale(1.15);
+  filter: none;
+}

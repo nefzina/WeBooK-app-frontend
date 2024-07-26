@@ -1,0 +1,61 @@
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+
+
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+
+
+  background-color: white;
+  box-shadow: inset 0 4px rgb(99,99,99,25%);
+  font-family: "Mulish", serif;
+
+}
+
+.footer-center{
+  display: flex;
+
+  text-align: center;
+}
+
+.footer-center h3{
+  font-family: "Cinzel Decorative", serif;
+  font-weight: bold;
+}
+
+.footer-contact,
+.footer-profil,
+.footer-plan-site {
+  flex: 1;
+  padding: 0 20px;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+ul{
+  list-style-type: none;
+  text-align: left;
+
+}
+
+a {
+  color: inherit;
+  transition: color .2s cubic-bezier(.33,.66,.66,1);
+}
+
+a:hover{
+  color: #ACD4D7;
+  font-weight: bolder;
+  text-decoration: underline #ACD4D7;
+}
+
+.copyright {
+
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+
+}

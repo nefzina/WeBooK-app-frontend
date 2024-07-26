@@ -1,0 +1,52 @@
+<div class="profile">
+  <div class="myLibrary">
+    <h2>Ma bibliothèque</h2>
+    <button routerLink="/addBook" class="addBook">Ajouter</button>
+
+    <div class="bookList">
+      <p class="noBooks" *ngIf="user.books?.length == 0; else bookList">Pas de livres encore dans votre bibliothèque</p>
+      <ng-template #bookList>
+        <div *ngFor="let book of user.books" class="imgContainer">
+          <a [routerLink]="['/page-book', book.id]">
+            <img [src]="getImageUrl(book.coverImage.filename)" [alt]="book.name" [title]="book.name">
+          </a>
+        </div>
+      </ng-template>
+    </div>
+
+  </div>
+  <div class="personalInfo">
+    <div class="avatar">
+      <img class="profilePic"
+           [src]="user.profilePicture == null ? defaultProfilePic : getImageUrl(user.profilePicture.filename)"
+           alt="your profile picture">
+      <input
+        hidden
+        type="file"
+        #uploader
+        (change)="uploadFile($event)"
+      />
+      <button class="addAvatarBtn" (click)="uploader.click()"><img src="./assets/plus.png" alt="modifier avatar">
+      </button>
+    </div>
+
+    <button class="editDataBtn">
+      <a routerLinkActive="active" routerLink="/update-profile">
+        <img src="../../../assets/edit.png" title="modifier vos informations" alt="modifier">
+      </a>
+    </button>
+    <h3>{{ user.username }}</h3>
+    <p>{{ user.email }}</p>
+    <p>{{ user.city }}</p>
+    <i></i>
+    <div class="preferencesContainer">
+      <p class="title">Préférences</p>
+      <p class="noPreferences" *ngIf="user.preferences.length == 0; else preferencesList">Ajoutez vos préférences</p>
+      <ng-template #preferencesList>
+        <div class="prefList">
+          <p class="preference" *ngFor="let pref of user.preferences">{{ pref.type }}</p>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

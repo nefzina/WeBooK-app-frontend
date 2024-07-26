@@ -1,0 +1,15 @@
+<mat-card class="container-book-detail" *ngFor="let mockBook of mockBook">
+  <mat-card-header>
+    <mat-card-title>{{mockBook.name}}</mat-card-title>
+    <mat-card-content>
+      <p>{{mockBook.author}}</p>
+      <p>{{mockBook.review}}</p>
+    </mat-card-content>
+  </mat-card-header>
+  <img [src]="mockBook.image" alt="book picture">
+  <mat-card-content>
+    <h3>Résumé</h3>
+    <p>{{mockBook.resume}}</p>
+  </mat-card-content>
+</mat-card>
+

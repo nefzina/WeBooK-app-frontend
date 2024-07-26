@@ -1,0 +1,19 @@
+<div class="container">
+
+  <img class="banner-img" src="#" alt="Bookshelf image">
+
+  <div class="container-presentation">
+    <h1>ECHANGE TES LIVRES</h1>
+    <p>WeBook est une plateforme pour les amateurs de livres qui cherchent à échanger leurs trésors préférés et découvrir de nouveaux auteurs. Notre communauté de lecteurs passionnés facilite la recherche de votre prochaine venture littéraire en partageant leurs expériences.</p>
+    <button routerLink="/recherche">Chercher un livre</button>
+    <button routerLink="/addBook">Publier un livre</button>
+  </div>
+</div>
+
+<p class="container-titre-recommendation">Recommandation</p>
+
+<div class="container-recommendation">
+  <a *ngFor="let mockBook of mockBooks" [routerLink]="['page-book']">
+    <img class="picture-book" [src]="mockBook.image" alt="book picture">
+  </a>
+</div>

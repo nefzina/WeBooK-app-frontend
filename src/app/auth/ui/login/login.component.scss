@@ -1,0 +1,36 @@
+@use "variables" as v;
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  height: 100%;
+  min-height: v.$min-body-height;
+  background-color: v.$light-green;
+}
+
+mat-card {
+  width: 90%;
+  max-width: 400px;
+}
+
+mat-card-header {
+  display: block;
+  text-align: center;
+}
+  mat-form-field{
+    width: 100%;
+  }
+  mat-error{
+    display:block;
+    width:100%;
+    text-align:center;
+    font-size:smaller;
+  }
+
+#btn-login {
+  width: 100%;
+}
+
+
+

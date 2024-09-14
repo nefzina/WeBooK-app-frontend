@@ -16,8 +16,7 @@ export class AuthenticationService implements IAuthenticationService {
   constructor(private httpClient: HttpClient) {
   }
 
-
-  authenticate(user: LoginRequestDto): Observable<LoginResponseDto|null> {
+  authenticate(user: LoginRequestDto): Observable<LoginResponseDto | null> {
     return this.httpClient.post<LoginResponseDto>(`${environment.API_URL}/login`, JSON.stringify(user), {
       headers: {
         "content-type": "application/json"
@@ -37,12 +36,11 @@ export class AuthenticationService implements IAuthenticationService {
   }
 
   register(user: User): Observable<Boolean> {
-  return this.httpClient.post<any>(`${environment.API_URL}/register`,  JSON.stringify(user), {
-
+    return this.httpClient.post<any>(`${environment.API_URL}/register`, JSON.stringify(user), {
       headers: {
         "content-type": "application/json"
       },
-      withCredentials:true,
+      withCredentials: true,
       observe: "response"
     }).pipe(
       map(response => {

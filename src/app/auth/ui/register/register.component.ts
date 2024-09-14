@@ -19,7 +19,7 @@ import {LoginRequestDto} from "../../domain/dtos/LoginRequestDto";
   selector: 'app-register',
   templateUrl: './register.component.html',
   standalone: true,
-    imports: [CommonModule, MatCardModule, MatInputModule, FormsModule, MatButtonModule, MatSelectModule, MatChipsModule, MatGridListModule, MatCheckbox, ReactiveFormsModule, MatIcon, RouterLink, RouterLinkActive],
+  imports: [CommonModule, MatCardModule, MatInputModule, FormsModule, MatButtonModule, MatSelectModule, MatChipsModule, MatGridListModule, MatCheckbox, ReactiveFormsModule, MatIcon, RouterLink, RouterLinkActive],
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
@@ -27,11 +27,9 @@ export class RegisterComponent {
   hidePassword = true;
   hideConfirmPassword: boolean = true;
 
-
   constructor(private formBuilder: FormBuilder, private authService: AuthenticationService, private router: Router) {
     this.createForm();
   }
-
 
   createForm() {
     this.registerForm = this.formBuilder.group({
@@ -43,9 +41,8 @@ export class RegisterComponent {
     }, {validator: passwordMatchValidator});
   }
 
-
   register() {
-    const user:LoginRequestDto = this.registerForm.value;
+    const user: LoginRequestDto = this.registerForm.value;
 
     //si les mots de passe correspondent, la méthode register du service d'authentification est appelée
     this.authService.register(user).subscribe(
@@ -61,5 +58,4 @@ export class RegisterComponent {
       }
     );
   }
-
 }

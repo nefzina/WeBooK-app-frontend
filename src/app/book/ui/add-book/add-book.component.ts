@@ -8,9 +8,9 @@ import {passwordMatchValidator} from "../../../auth/application/passwordMatch";
 import {BookService} from "../../domain/service/book.service";
 import {Book} from "../../domain/models/book";
 import {Category} from "./category.model";
-import {CategoryService} from "../../../services/category.service";
-import {UserIdService} from "../../../services/userId.service";
-import {UploadService} from "../../../services/upload.service";
+import {CategoryService} from "../../../domain/services/category.service";
+import {UserIdService} from "../../../domain/services/userId.service";
+import {UploadService} from "../../../domain/services/upload.service";
 import {IMedia} from "../../../profile/domain/interface/IMedia";
 import {AddBookService} from "../../domain/service/addBook.service";
 

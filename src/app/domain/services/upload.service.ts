@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ApiService} from "./api.service";
 import {catchError, interval, Observable, of, switchMap, takeUntil, tap} from "rxjs";
-import {IMedia} from "../profile/domain/interface/IMedia";
+import {IMedia} from "../../profile/domain/interface/IMedia";
 
 @Injectable({
   providedIn: 'root'

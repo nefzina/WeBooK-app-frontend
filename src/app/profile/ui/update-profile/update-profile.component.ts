@@ -10,10 +10,10 @@ import {CommonModule} from "@angular/common";
 import {MatChipsModule} from '@angular/material/chips';
 import {type} from "node:os";
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
-import {UserIdService} from "../../../services/userId.service";
+import {UserIdService} from "../../../domain/services/userId.service";
 import {Book} from "../../../book/domain/models/book";
 import {tap} from "rxjs";
-import {ApiService} from "../../../services/api.service";
+import {ApiService} from "../../../domain/services/api.service";
 import {IPasswords} from "../../domain/interface/IPasswords";
 import {log} from "node:util";
 

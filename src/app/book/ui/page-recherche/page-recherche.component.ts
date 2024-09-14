@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {RouterLink} from "@angular/router";
-import {BookService} from "../book/domain/service/book.service";
+import {BookService} from "../../domain/service/book.service";
 import {FormBuilder, FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AsyncPipe, NgForOf} from "@angular/common";
 import {MatInputModule} from "@angular/material/input";
@@ -8,8 +8,8 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {forkJoin, map, Observable, startWith} from "rxjs";
-import {Author} from "../book/domain/models/author";
-import {Book} from "../book/domain/models/book";
+import {Author} from "../../domain/models/author";
+import {Book} from "../../domain/models/book";
 
 export interface BookGroup {
   name: string;

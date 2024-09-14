@@ -7,7 +7,7 @@ import {Author} from "../../../book/domain/models/author";
 import {environment} from "../../../../environments/environment";
 import {User} from "../../../profile/domain/models/User";
 import {ICategory} from "../../../profile/domain/interface/ICategory";
-import {ApiService} from "../../../services/api.service";
+import {ApiService} from "../../../domain/services/api.service";
 
 
 @Injectable({
@@ -115,7 +115,10 @@ export class BookService {
     this.bookId.next(id);
   }
 
-
+  searchBooks(keyword: string): Observable<Book[]> {
+    const apiURL = `http://localhost:8080/book/search?keyword=${keyword}`;
+    return this.http.get<Book[]>(apiURL);
+  }
 }
 
 

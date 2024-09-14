@@ -3,8 +3,8 @@ import {ProfileService} from "../domain/services/profile.service";
 import {IUser} from "../domain/interface/IUser";
 import {NgForOf, NgIf} from "@angular/common";
 import {RouterLink, RouterLinkActive} from "@angular/router";
-import {UploadService} from "../../services/upload.service";
-import {UserIdService} from "../../services/userId.service";
+import {UploadService} from "../../domain/services/upload.service";
+import {UserIdService} from "../../domain/services/userId.service";
 import {environment} from "../../../environments/environment";
 
 @Component({

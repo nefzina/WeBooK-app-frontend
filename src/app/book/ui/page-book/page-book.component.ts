@@ -5,7 +5,7 @@ import {MatCardModule} from "@angular/material/card";
 import {NgForOf} from "@angular/common";
 import {ActivatedRoute, RouterLink, RouterLinkActive} from "@angular/router";
 import {Book} from "../../domain/models/book";
-import {UploadService} from "../../../services/upload.service";
+import {UploadService} from "../../../domain/services/upload.service";
 import {environment} from "../../../../environments/environment";
 
 @Component({

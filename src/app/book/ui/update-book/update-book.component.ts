@@ -10,8 +10,8 @@ import { environment } from "../../../../environments/environment";
 import { UserIdService } from "../../../domain/services/userId.service";
 import { ProfileService } from "../../../profile/domain/services/profile.service";
 import { IUser } from "../../../profile/domain/interface/IUser";
-import { Category } from "../add-book/category.model";
 import { IMedia } from "../../../profile/domain/interface/IMedia";
+import {Category} from "../../domain/models/category";
 
 @Component({
   selector: 'app-update-book',

@@ -19,14 +19,21 @@ import {AuthenticationService} from "../../auth/domain/services/authentication.s
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  loggedUser: any;
+  isLoggedIn!: string|null;
   showFiller = false;
+  isMenuOpen: boolean = false;
+  role!: string|null;
 
   constructor(private router: Router, private authService: AuthenticationService) {
-    const localUser = localStorage.getItem('loggedIn');
-    if (localUser != null) {
-      this.loggedUser = JSON.parse(localUser);
-    }
+  }
+
+  ngOnInit() {
+    this.isLoggedIn = localStorage.getItem('loggedIn');
+    this.role = localStorage.getItem("role");
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 
   onLogoff() {

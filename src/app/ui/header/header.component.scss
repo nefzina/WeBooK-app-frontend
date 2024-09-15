@@ -6,79 +6,102 @@ header {
   justify-content: space-between;
   padding: 0 10px;
   background-color: white;
-  box-shadow: 0 4px 4px rgb(99, 99, 99, 25%);
+  box-shadow: 0 4px 4px rgba(99, 99, 99, 0.25);
   font-size: 15px;
   color: black;
-}
 
-.center {
-  margin: 0 20px;
-  height: fit-content;
-
-  a {
-    margin-left: 25px;
-    margin-right: 25px;
+  .center {
+    margin: 0 10px;
+    a {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
   }
-}
 
-a {
-  text-decoration: none;
-  font-family: "Mulish", serif;
-  font-weight: bold;
-  color: inherit;
-  transition: color .2s cubic-bezier(.33, .66, .66, 1);
-}
-p{
-  text-align: center ;
-}
-
-.webook {
-  width: fit-content;
-  margin: 0 clamp(50px, 3vw, 115px);
-  color: black;
-  font-size: 35px;
-  font-weight: 900;
-  font-family: "Cinzel Decorative", serif;
-  font-style: normal;
-}
-
-.spacer {
-  flex: 1 1 auto;
-}
-
-a:hover {
-  color: #ACD4D7;
-  font-weight: bolder;
-  //text-decoration: underline #ACD4D7;
-}
-
-.profileLink {
-  width: 140px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  img {
-    border-radius: 100%;
-    width: 60px;
-    height: 60px;
+  .webook {
+    font-size: 25px;
+    font-weight: 900;
+    font-family: "Cinzel Decorative", serif;
+    font-style: normal;
   }
-}
 
-label, #toggle {
-  display: none;
-}
+  .profileLink {
+    display: none;
+  }
 
-/* Media Queries */
-@media screen and (max-width: 700px) {
-  label {
-    width: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    font-size: 40px;
-    color: white;
+  .menu-button {
+    font-size: 30px;
+    background: none;
+    border: none;
     cursor: pointer;
+  }
+
+  .mobile-menu {
+    position: absolute;
+    right: 10px;
+    top: 80px;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 200px;
+    border-radius: 4px;
+
+    a, button {
+      margin: 5px 0;
+      padding: 10px;
+      text-align: left;
+      border: none;
+      background: none;
+      color: inherit;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    a:hover, button:hover {
+      background-color: #f0f0f0;
+    }
+  }
+}
+
+@media screen and (min-width: 750px) {
+  header {
+    .menu-button {
+      display: none;
+    }
+
+    .mobile-menu {
+      display: none;
+    }
+
+    .profileLink {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 180px;
+
+      img {
+        border-radius: 100%;
+        width: 50px;
+        height: 50px;
+      }
+
+      a, button {
+        font-size: 16px;
+      }
+    }
+
+    .center {
+      margin: 0 20px;
+      a {
+        margin-left: 25px;
+        margin-right: 25px;
+      }
+    }
+
+    .webook {
+      font-size: 35px;
+    }
   }
 }

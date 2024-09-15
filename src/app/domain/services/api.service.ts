@@ -28,7 +28,6 @@ export class ApiService {
     })
   }
 
-
   post<T>(endpoint: string, body: Book | IUser | LoginRequestDto | User): Observable<T> {
     return this.http.post<T>(`${environment.API_URL}/${endpoint}`, body, {
       withCredentials: true,
@@ -54,7 +53,7 @@ export class ApiService {
   }
 
   delete<T>(endpoint: string, id: number): Observable<T> {
-    return this.http.delete<T>(`${process.env["BACKEND_URL "]}/${endpoint}/${id}`, {
+    return this.http.delete<T>(`${environment.API_URL}/${endpoint}/${id}`, {
       withCredentials: true,
     })
   }

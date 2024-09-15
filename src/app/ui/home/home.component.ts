@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {NgForOf} from "@angular/common";
-import {BookService} from "../book/domain/service/book.service";
-import {HeaderComponent} from "../components/header/header.component";
-import {FooterComponent} from "../components/footer/footer.component";
-import {LoginComponent} from "../auth/ui/login/login.component";
-import {RegisterComponent} from "../auth/ui/register/register.component";
+import {BookService} from "../../book/domain/service/book.service";
+import {HeaderComponent} from "../header/header.component";
+import {FooterComponent} from "../footer/footer.component";
+import {LoginComponent} from "../../auth/ui/login/login.component";
+import {RegisterComponent} from "../../auth/ui/register/register.component";
 
 @Component({
   selector: 'app-home',

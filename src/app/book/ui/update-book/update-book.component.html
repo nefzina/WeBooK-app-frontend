@@ -46,7 +46,7 @@
           </label>
           <label for="categoryId">Catégorie:</label>
           <select id="categoryId" [(ngModel)]="book.bookCategory.id" name="categoryId" required>
-            <option *ngFor="let category of categories" [value]="category.id">{{ category.type }}</option>
+            <option *ngFor="let category of categories" [value]="category.id">{{ category.category }}</option>
           </select>
         </div>
       </div>

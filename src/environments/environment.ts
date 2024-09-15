@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  API_URL: process.env["BACKEND_URL"]
+  API_URL: "https://vps-3e147556.vps.ovh.net/"
 };

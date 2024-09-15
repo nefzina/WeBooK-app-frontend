@@ -8,7 +8,7 @@ import {AuthenticationService} from "../../domain/services/authentication.servic
 import {Router, RouterLink, RouterLinkActive} from "@angular/router";
 import {LoginRequestDto} from "../../domain/dtos/LoginRequestDto";
 import {MatIcon} from "@angular/material/icon";
-import {UserIdService} from "../../../services/userId.service";
+import {UserIdService} from "../../../domain/services/userId.service";
 import {LoginResponseDto} from "../../domain/dtos/LoginResponseDto";
 
 
@@ -25,10 +25,8 @@ export class LoginComponent {
   loginError = "";
   hidePassword = true;
 
-
   constructor(private authService: AuthenticationService, private router: Router, private userIdService: UserIdService) {
   }
-
 
   login() {
 
@@ -37,11 +35,11 @@ export class LoginComponent {
 
       this.authService.authenticate(loginDto).subscribe(
         (user: LoginResponseDto | null) => {
-          console.log(user);
+
           if (user) {
             this.userIdService.setUserId(user.id);
-            if(user.role.type === "admin") this.router.navigate(['/back-office']);
-              else this.router.navigate(['/home']);
+            if (user.role.type === "admin") this.router.navigate(['/back-office']);
+            else this.router.navigate(['/home']);
           } else {
             this.loginError = "Email ou mot de passe incorrect.";
           }

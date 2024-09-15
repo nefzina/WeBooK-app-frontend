@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Observable, tap} from 'rxjs';
-import {Category} from "../book/ui/add-book/category.model";
 import {ApiService} from "./api.service";
 import {response} from "express";
+import {Category} from "../../book/domain/models/category";
 
 
 @Injectable({

@@ -1,0 +1,29 @@
+<header>
+  <div class="center" id="myLinks">
+    <a [routerLink]="['home']">Accueil</a>
+    <a [routerLink]="['recherche']">Recherche</a>
+    <span class="webook">WeBooK</span>
+    <a [routerLink]="['conversation']">Conversation</a>
+    <a routerLinkActive="active" routerLink="/guide">Guide</a>
+  </div>
+
+  <!-- Menu pour desktop/tablet -->
+  <div *ngIf="isLoggedIn" class="profileLink desktop">
+    <img class="miniature_profile" src="../../../assets/profile.png" alt="Profile Picture">
+    <a routerLinkActive="active" routerLink="/profile">Mon profil</a>
+    <a routerLinkActive="active" routerLink="/back-office">Admin</a>
+    <button (click)="onLogoff()">Déconnexion</button>
+  </div>
+
+  <!-- Bouton connexion si non connecté -->
+  <button *ngIf="isLoggedIn==undefined" routerLink="/login">Connexion</button>
+
+  <!-- Menu pour mobile -->
+  <button *ngIf="isLoggedIn" class="menu-button" (click)="toggleMenu()">☰</button>
+
+  <div class="mobile-menu" *ngIf="isMenuOpen">
+    <a routerLink="/profile">Mon profil</a>
+    <a *ngIf="role=='admin'" routerLink="/back-office">Admin</a>
+    <button (click)="onLogoff()">Deconnexion</button>
+  </div>
+</header>

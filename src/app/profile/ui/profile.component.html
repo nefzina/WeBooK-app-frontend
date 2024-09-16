@@ -7,7 +7,7 @@
       <p class="noBooks" *ngIf="user.books?.length == 0; else bookList">Pas de livres encore dans votre bibliothèque</p>
       <ng-template #bookList>
         <div *ngFor="let book of user.books" class="imgContainer">
-          <a [routerLink]="['/page-book', book.id]">
+          <a [routerLink]="['/book-details', book.id]">
             <img [src]="getImageUrl(book.coverImage.filename)" [alt]="book.name" [title]="book.name">
           </a>
         </div>
@@ -44,7 +44,7 @@
       <p class="noPreferences" *ngIf="user.preferences.length == 0; else preferencesList">Ajoutez vos préférences</p>
       <ng-template #preferencesList>
         <div class="prefList">
-          <p class="preference" *ngFor="let pref of user.preferences">{{ pref.type }}</p>
+          <p class="preference" *ngFor="let pref of user.preferences">{{ pref.category }}</p>
         </div>
       </ng-template>
     </div>

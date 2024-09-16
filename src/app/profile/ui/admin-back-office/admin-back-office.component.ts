@@ -1,7 +1,7 @@
 import {Component, OnInit, AfterViewInit, ViewChild} from '@angular/core';
 import {ProfileService} from "../../domain/services/profile.service";
-import {ApiService} from "../../../services/api.service";
-import {UserIdService} from "../../../services/userId.service";
+import {ApiService} from "../../../domain/services/api.service";
+import {UserIdService} from "../../../domain/services/userId.service";
 import {IUser} from "../../domain/interface/IUser";
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';

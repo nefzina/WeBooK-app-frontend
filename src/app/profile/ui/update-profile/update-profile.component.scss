@@ -58,6 +58,10 @@
             padding-top: 40px;
             border: none;
             border-top: 1px solid #ccc;
+
+            .error{
+              color: #e84b4b;
+            }
           }
 
           .mat-mdc-chip-set {

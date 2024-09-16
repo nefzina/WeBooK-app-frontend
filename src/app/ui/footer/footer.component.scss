@@ -1,0 +1,68 @@
+footer {
+  position: relative;
+  bottom: 0;
+  width: calc(100vw - 17px);
+  padding: 20px 0;
+  background-color: white;
+  box-shadow: inset 0 4px rgb(99, 99, 99, 25%);
+  font-family: "Mulish", serif;
+  position: relative;
+
+  .footer-center {
+    display: flex;
+    flex-direction: column; /* Mobile-first: vertical layout */
+    text-align: center;
+  }
+
+  .footer-contact,
+  .footer-profil,
+  .footer-plan-site {
+    padding: 10px 20px;
+    margin: 0; /* Remove the margin for smaller screens */
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+  }
+
+  a {
+    color: inherit;
+    transition: color 0.2s cubic-bezier(0.33, 0.66, 0.66, 1);
+  }
+
+  a:hover {
+    color: #acd4d7;
+    font-weight: bolder;
+    text-decoration: underline #acd4d7;
+  }
+
+  .copyright {
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  footer {
+    .footer-center {
+      flex-direction: row; /* Horizontal layout for larger screens */
+      justify-content: space-around;
+      text-align: center;
+    }
+
+    .footer-contact,
+    .footer-profil,
+    .footer-plan-site {
+      text-align: left; /* Left-align the text for desktop */
+      width: 160px;
+    }
+
+    ul {
+      text-align: left; /* Align the list to the left on larger screens */
+    }
+  }
+}

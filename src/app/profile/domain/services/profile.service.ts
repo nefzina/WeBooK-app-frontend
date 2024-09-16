@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {ApiService} from "../../../services/api.service";
+import {ApiService} from "../../../domain/services/api.service";
 import {Observable, tap} from "rxjs";
 import {User} from "../models/User";
 import {ICategory} from "../interface/ICategory";

@@ -1,0 +1,28 @@
+<header>
+  <div class="links">
+    <a [routerLink]="['home']">Accueil</a>
+    <a class="reseachDesktop" [routerLink]="['recherche']">Recherche</a>
+    <span class="webook">WeBooK</span>
+    <a [routerLink]="['conversation']">Conversation</a>
+    <a class="guideDesktop" [routerLink]="['guide']">Guide</a>
+  </div>
+
+<!--  &lt;!&ndash; Menu pour desktop/tablet &ndash;&gt;-->
+<!--  <div *ngIf="isLoggedIn=='true'" class="profileLink desktop">-->
+<!--    <img class="miniature_profile" src="../../../assets/profile.png" alt="Profile Picture">-->
+<!--    <a routerLinkActive="active" routerLink="/profile">Mon profil</a>-->
+<!--    <a *ngIf="role=='admin'" routerLinkActive="active" routerLink="/back-office">Admin</a>-->
+<!--    <button (click)="onLogoff()">Déconnexion</button>-->
+<!--  </div>-->
+
+  <button class="logInBtn" *ngIf="!isLoggedIn" routerLink="/login">Connexion</button>
+  <button *ngIf="isLoggedIn" class="menu-button" (click)="toggleMenu()">☰</button>
+
+  <div class="menu" *ngIf="isMenuOpen && isLoggedIn">
+    <a routerLink="/profile">Mon profil</a>
+    <a *ngIf="role=='admin'" routerLink="/back-office">Admin</a>
+    <a class="reseachMobile" [routerLink]="['recherche']">Recherche</a>
+    <a class="guideMobile" routerLinkActive="active" routerLink="/guide">Guide</a>
+    <button (click)="onLogoff()">Déconnexion</button>
+  </div>
+</header>

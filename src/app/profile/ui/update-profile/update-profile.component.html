@@ -1,57 +1,5 @@
 <div class="updateProfile">
 
-  <!--  <h2>Modifier mes coordonnées</h2>-->
-  <!--  <div class="updateData">-->
-  <!--    <form [formGroup]="userForm" (ngSubmit)="updateUser()" enctype="multipart/form-data" class="form-container">-->
-  <!--      <div class="leftContainer">-->
-
-  <!--        <mat-form-field>-->
-  <!--          <mat-label>Username</mat-label>-->
-  <!--          <input matInput id="username" type="text" formControlName="username" [placeholder]="user.username">-->
-  <!--        </mat-form-field>-->
-
-  <!--        <mat-form-field hintLabel="Min 8 caractères">-->
-  <!--          <mat-label>Nouveau mot de passe</mat-label>-->
-  <!--          <input matInput #pw [type]="hide ? 'password' : 'text'" formControlName="password">-->
-  <!--          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"-->
-  <!--                  [attr.aria-pressed]="hide">-->
-  <!--            <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>-->
-  <!--          </button>-->
-  <!--          <mat-hint align="end">{{ pw.value.length }}/8</mat-hint>-->
-  <!--        </mat-form-field>-->
-
-  <!--        <mat-form-field>-->
-  <!--          <mat-label>Ville</mat-label>-->
-  <!--          <input #ville matInput type="text" formControlName="city" [placeholder]="user.city?user.city:''">-->
-  <!--        </mat-form-field>-->
-
-  <!--        <mat-form-field>-->
-  <!--          <mat-label>Code postal</mat-label>-->
-  <!--          <input #codePostal matInput type="text" formControlName="zipCode"-->
-  <!--                 [placeholder]="user.zip_code?user.zip_code:''">-->
-  <!--        </mat-form-field>-->
-  <!--        &lt;!&ndash;            <ul>&ndash;&gt;-->
-  <!--        &lt;!&ndash;                <li data-vicopo="#ville, #code" data-vicopo-click='{"#code": "code", "#ville": "ville"}'>&ndash;&gt;-->
-  <!--        &lt;!&ndash;                    <strong data-vicopo-code-postal></strong>&ndash;&gt;-->
-  <!--        &lt;!&ndash;                    <span data-vicopo-ville></span>&ndash;&gt;-->
-  <!--        &lt;!&ndash;                </li>&ndash;&gt;-->
-  <!--        &lt;!&ndash;            </ul>&ndash;&gt;-->
-  <!--      </div>-->
-
-  <!--      <div class="rightContainer">-->
-  <!--        <p>Preferences</p>-->
-  <!--        <mat-chip-listbox class="mat-mdc-chip-set-stacked" aria-label="Color selection" [multiple]="true">-->
-  <!--          @for (category of categories; track category) {-->
-  <!--            <mat-chip-option [selected]="isCategorySelected(category)" [value]="category.id"-->
-  <!--                             (selectionChange)="onCategoryChange(category, $event.selected)">>{{ category.type }}-->
-  <!--            </mat-chip-option>-->
-  <!--          }-->
-  <!--        </mat-chip-listbox>-->
-  <!--      </div>-->
-  <!--      <button type="submit">Enregistrer</button>-->
-  <!--    </form>-->
-  <!--  </div>-->
-
   <form [formGroup]="userForm" (ngSubmit)="updateUser()" enctype="multipart/form-data" class="form-container">
     <div class="form-title">
       <h2>Modifier mes coordonnées </h2>
@@ -73,19 +21,19 @@
               <label for="oldPassword">Ancien mot de passe:</label>
               <input id="oldPassword" formControlName="oldPassword">
               <div class="error" *ngIf="userForm.get('oldPassword')?.hasError('pattern') && userForm.get('oldPassword')?.touched">
-                Invalid old password format.
+                format invalide.
               </div>
 
               <label for="newPassword">Nouveau mot de passe:</label>
               <input id="newPassword" formControlName="newPassword">
               <div class="error" *ngIf="userForm.get('newPassword')?.hasError('pattern') && userForm.get('newPassword')?.touched">
-                Invalid new password format.
+                format invalide.
               </div>
 
               <label for="confirmPassword">Confirmation du mot de passe:</label>
               <input id="confirmPassword" formControlName="confirmPassword">
               <div class="error" *ngIf="userForm.get('confirmPassword')?.hasError('pattern') && userForm.get('confirmPassword')?.touched">
-                Invalid confirm password format.
+                Format invalide.
               </div>
 
               <div *ngIf="userForm.errors?.['sameAsOldPassword']">
@@ -93,7 +41,7 @@
               </div>
 
               <div *ngIf="userForm.errors?.['passwordsMismatch']">
-                <span class="error">Le nouveau mot de passe et le mot de passe de confirmation ne correspondent pas.</span>
+                <span class="error">Le nouveau mot de passe et le mot de passe de confirmation sont différents.</span>
               </div>
             </div>
 
@@ -105,7 +53,7 @@
             <mat-chip-listbox id="categories" class="mat-mdc-chip-set-stacked" aria-label="Color selection"
                               [multiple]="true">
                 <mat-chip-option *ngFor="let category of categories" [selected]="isCategorySelected(category)" [value]="category.id"
-                                 (selectionChange)="onCategoryChange(category, $event.selected)">{{ category.type }}
+                                 (selectionChange)="onCategoryChange(category, $event.selected)">{{ category.category }}
                 </mat-chip-option>
             </mat-chip-listbox>
           </div>

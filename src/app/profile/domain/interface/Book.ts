@@ -2,7 +2,7 @@ import {IMedia} from "./IMedia";
 
 export interface Book {
   id: number,
-  name: string,
+  title: string,
   coverImage: IMedia,
   author: string,
   edition: string,

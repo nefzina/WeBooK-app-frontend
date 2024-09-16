@@ -4,6 +4,7 @@ import {MatMenuModule} from "@angular/material/menu";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {RouterLink, RouterLinkActive, Router} from "@angular/router";
 import {AuthenticationService} from "../../auth/domain/services/authentication.service";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-header',
@@ -14,22 +15,26 @@ import {AuthenticationService} from "../../auth/domain/services/authentication.s
     MatToolbarModule,
     RouterLinkActive,
     RouterLink,
+    NgIf,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  isLoggedIn!: string|null;
+  isLoggedIn!: Boolean;
   showFiller = false;
   isMenuOpen: boolean = false;
-  role!: string|null;
+  role!: string | null;
 
   constructor(private router: Router, private authService: AuthenticationService) {
   }
 
   ngOnInit() {
-    this.isLoggedIn = localStorage.getItem('loggedIn');
+    this.authService.loggedIn$.subscribe(status => {
+      this.isLoggedIn = status;
+    })
     this.role = localStorage.getItem("role");
+
   }
 
   toggleMenu() {

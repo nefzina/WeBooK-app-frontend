@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {IAuthenticationService} from "./IAuthentication-service";
 import {HttpClient} from "@angular/common/http";
-import {map, Observable} from "rxjs";
+import {BehaviorSubject, map, Observable} from "rxjs";
 import {LoginRequestDto} from "../dtos/LoginRequestDto";
 import {User} from "../models/User";
 import {environment} from "../../../../environments/environment";
@@ -28,11 +28,27 @@ export class AuthenticationService implements IAuthenticationService {
         if (response.status === 200) {
           localStorage.setItem('loggedIn', "true");
           localStorage.setItem('role', <string>response.body?.role.type.toString());
-
+          this.setLoggedIn(true);
           return response.body;
         }
         return null;
       }))
+  }
+
+  private loggedInStatus = new BehaviorSubject<boolean>(this.getLoggedInFromLocalStorage());
+
+  // Observable that other components can subscribe to
+  loggedIn$ = this.loggedInStatus.asObservable();
+
+  // Method to update logged-in status and localStorage
+  setLoggedIn(status: boolean): void {
+    this.loggedInStatus.next(status);
+    localStorage.setItem('loggedIn', status ? 'true' : 'false');
+  }
+
+  // Method to retrieve logged-in status from localStorage
+  getLoggedInFromLocalStorage(): boolean {
+    return localStorage.getItem('loggedIn') === 'true';
   }
 
   register(user: User): Observable<Boolean> {
@@ -49,7 +65,8 @@ export class AuthenticationService implements IAuthenticationService {
   }
 
   logout(): void {
-    localStorage.removeItem('loggedIn');
+    this.setLoggedIn(false);
+    localStorage.removeItem('role');
     //this.httpClient.post<any>("http://localhost:8080/logout", { withCredentials: true }).subscribe();
   }
 

@@ -12,7 +12,7 @@
 </div>
 
 <div class="filters">
-  <p>FILTRER par :</p>
+  <p>Filtrez par :</p>
   <select name="category" (selectionchange)="onCategoryChange($event)">
     <option value="">- Catégories -</option>
     <option *ngFor="let category of categories" [value]="category.id">{{category.category}}</option>

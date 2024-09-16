@@ -23,7 +23,7 @@ export class BookService {
   mockBooks = [
     {
       id: 1,
-      name: 'Du même bois',
+      title: 'Du même bois',
       image: 'assets/pictures/Du-meme-bois.jpg',
       category: 'Aventure',
       author: 'Marion Fayolle',
@@ -34,7 +34,7 @@ export class BookService {
     },
     {
       id: 2,
-      name: 'La louisiane',
+      title: 'La louisiane',
       image: 'assets/pictures/La-Louisiane.jpg',
       category: 'Policier',
       author: 'test2',
@@ -46,7 +46,7 @@ export class BookService {
     },
     {
       id: 3,
-      name: 'La vie heureuse',
+      title: 'La vie heureuse',
       image: 'assets/pictures/La-vie-heureuse.jpg',
       category: 'Amour',
       author: 'test3',
@@ -58,7 +58,7 @@ export class BookService {
     },
     {
       id: 4,
-      name: 'Les Yeux de Mona',
+      title: 'Les Yeux de Mona',
       image: 'assets/pictures/Les-Yeux-de-Mona.jpg',
       category: 'Horreur',
       author: 'test4',
@@ -70,7 +70,7 @@ export class BookService {
     },
     {
       id: 5,
-      name: 'Un soir d\'éte',
+      title: 'Un soir d\'éte',
       image: 'assets/pictures/Un-soir-d-ete.jpg',
       category: '',
       author: 'test5',
@@ -82,7 +82,7 @@ export class BookService {
     },
     {
       id: 6,
-      name: 'Du même bois',
+      title: 'Du même bois',
       image: 'assets/pictures/Du-meme-bois.jpg',
       category: '',
       author: 'test6',
@@ -94,7 +94,7 @@ export class BookService {
     },
     {
       id: 7,
-      name: 'Du même bois',
+      title: 'Du même bois',
       image: 'assets/pictures/Du-meme-bois.jpg',
       category: '',
       author: 'test7',
@@ -106,7 +106,7 @@ export class BookService {
     },
     {
       id: 8,
-      name: 'Du même bois',
+      title: 'Du même bois',
       image: 'assets/pictures/Du-meme-bois.jpg',
       category: '',
       author: 'test8',
@@ -118,7 +118,7 @@ export class BookService {
     },
     {
       id: 9,
-      name: 'Du même bois',
+      title: 'Du même bois',
       image: 'assets/pictures/Du-meme-bois.jpg',
       category: '',
       author: 'test9',
@@ -129,7 +129,7 @@ export class BookService {
     },
     {
       id: 10,
-      name: 'Du même bois',
+      title: 'Du même bois',
       image: 'assets/pictures/Du-meme-bois.jpg',
       category: '',
       author: 'test10',

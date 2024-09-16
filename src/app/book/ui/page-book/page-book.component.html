@@ -3,10 +3,10 @@
     <h1> Livre enregistré</h1>
     <div class="book-details">
       <div class="book-image">
-        <img [src]="getBookCoverUrl(book.coverImage.filename)" [alt]="book.name" [title]="book.name" width="200">
+        <img [src]="getBookCoverUrl(book.coverImage.filename)" [alt]="book.title" [title]="book.title" width="200">
       </div>
       <div class="book-info">
-        <p>Titre: {{book.name}}</p>
+        <p>Titre: {{book.title}}</p>
         <p>Auteur: {{book.author}}</p>
         <p>ISBN: {{book.isbn}}</p>
         <p>Résumé: {{book.resume}}</p>

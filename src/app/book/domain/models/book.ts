@@ -4,7 +4,7 @@ import {IUser} from "../../../profile/domain/interface/IUser";
 
 export class Book{
   id: number;
-  name: string;
+  title: string;
   coverImage: IMedia;
   author: string;
   edition: string;
@@ -14,11 +14,11 @@ export class Book{
   bookCategory: ICategory;
   owner:IUser;
 
-  constructor(book_id: number, book_name: string, book_image: IMedia, book_author: string,
+  constructor(book_id: number, book_title: string, book_image: IMedia, book_author: string,
               book_edition: string, book_resume: string, book_isbn: string, book_review: string,
               book_category:ICategory, owner: IUser) {
     this.id = book_id;
-    this.name = book_name;
+    this.title = book_title;
     this.coverImage = book_image;
     this.author = book_author;
     this.edition = book_edition;

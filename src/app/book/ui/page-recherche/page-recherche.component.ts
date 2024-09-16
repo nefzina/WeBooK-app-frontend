@@ -13,7 +13,7 @@ import {Book} from "../../domain/models/book";
 import {ICategory} from "../../../profile/domain/interface/ICategory";
 
 export interface BookGroup {
-  name: string;
+  title: string;
   author: string;
 }
 
@@ -85,7 +85,7 @@ export class PageRechercheComponent implements OnInit {
   ngOnInit() {
     this.mockBooks = this.bookService.mockBooks;
     // this.loadData()
-    //this.suggestions = this.bookService.mockBooks.map(book => book.name);
+    //this.suggestions = this.bookService.mockBooks.map(book => book.title);
     this.bookGroupOptions = this.bookFrom.get('bookGroup')!.valueChanges.pipe(
       startWith(''),
       map(value => this._filterGroup(value || '')),
@@ -120,7 +120,7 @@ export class PageRechercheComponent implements OnInit {
 
   private _filterGroup(value: string): BookGroup[] {
     if (value) {
-      return this.bookGroups.map(group => ({author: group.author, name: group.name}));
+      return this.bookGroups.map(group => ({author: group.author, title: group.title}));
     }
     return this.bookGroups;
   }

@@ -8,7 +8,7 @@
       <ng-template #bookList>
         <div *ngFor="let book of user.books" class="imgContainer">
           <a [routerLink]="['/book-details', book.id]">
-            <img [src]="getImageUrl(book.coverImage.filename)" [alt]="book.name" [title]="book.name">
+            <img [src]="getImageUrl(book.coverImage.filename)" [alt]="book.title" [title]="book.title">
           </a>
         </div>
       </ng-template>

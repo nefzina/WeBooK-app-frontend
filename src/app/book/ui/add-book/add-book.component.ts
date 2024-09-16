@@ -43,7 +43,7 @@ export class AddBookComponent implements OnInit {
     private uploadService: UploadService
   ) {
     this.bookForm = this.fb.group({
-      name: ['', Validators.required],
+      title: ['', Validators.required],
       author: ['', Validators.required],
       edition: [''],
       review: [''],

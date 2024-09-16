@@ -14,7 +14,8 @@ import {AdminAuthGuard} from "./auth/application/AdminAuthGuard";
 export const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
-  {path: 'book-details/:id', component: PageBookComponent},
+  {path: 'book-details/:id', component: BookDetailComponent},
+  {path: 'page-book/:id', component: PageBookComponent},
   {path: 'recherche', component: PageRechercheComponent},
   {path: 'addBook', component: AddBookComponent, canActivate: [AuthGuard]},
   {path: 'updateBook/:id', component: UpdateBookComponent},

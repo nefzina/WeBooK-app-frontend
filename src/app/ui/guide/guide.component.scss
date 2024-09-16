@@ -1,0 +1,58 @@
+
+body{
+  background-color: rgba(218, 217, 239, 0.2);
+}
+
+h1{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  font-weight:bold;
+}
+h2{
+  font-family: "Mulish", serif;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+p {
+  display:flex;
+  justify-content: center;
+  color: #131e5d;
+  font-family: "Mulish", serif;
+  font-size: 17px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+}
+
+.container{
+
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh; // pour que le container prenne toute la hauteur de la fenêtre
+  margin: 30px 30px;
+
+}
+
+mat-accordion, mat-panel-title{
+
+  justify-content: center;
+  width: 100%;
+
+}
+
+mat-expansion-panel-header{
+
+  justify-content: center;
+  width: 100%;
+}
+mat-expansion-panel{
+  margin-top: 10px;
+  background-color: #e5e8f5;
+}

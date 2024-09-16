@@ -1,0 +1,72 @@
+<div class="updateProfile">
+
+  <form [formGroup]="userForm" (ngSubmit)="updateUser()" enctype="multipart/form-data" class="form-container">
+    <div class="form-title">
+      <h2>Modifier mes coordonnées </h2>
+    </div>
+    <section class="section_1_discover">
+      <div class="data">
+        <div class="form-column">
+          <div class="card-body">
+            <label for="username">Username:</label>
+            <input id="username" formControlName="username" type="text"
+                   [placeholder]="user.username?user.username:''"><br>
+            <label for="city">Ville:</label>
+            <input id="city" formControlName="city" [placeholder]="user.city?user.city:''">
+            <label for="zip_code">Code postal:</label><br>
+            <input id="zip_code" formControlName="zip_code" type="text"
+                   [placeholder]="user.zip_code?user.zip_code:''"><br>
+
+            <div class="passwords">
+              <label for="oldPassword">Ancien mot de passe:</label>
+              <input id="oldPassword" formControlName="oldPassword">
+              <div class="error" *ngIf="userForm.get('oldPassword')?.hasError('pattern') && userForm.get('oldPassword')?.touched">
+                format invalide.
+              </div>
+
+              <label for="newPassword">Nouveau mot de passe:</label>
+              <input id="newPassword" formControlName="newPassword">
+              <div class="error" *ngIf="userForm.get('newPassword')?.hasError('pattern') && userForm.get('newPassword')?.touched">
+                format invalide.
+              </div>
+
+              <label for="confirmPassword">Confirmation du mot de passe:</label>
+              <input id="confirmPassword" formControlName="confirmPassword">
+              <div class="error" *ngIf="userForm.get('confirmPassword')?.hasError('pattern') && userForm.get('confirmPassword')?.touched">
+                Format invalide.
+              </div>
+
+              <div *ngIf="userForm.errors?.['sameAsOldPassword']">
+                <span class="error">Le nouveau mot de passe ne peut pas être identique à l'ancien mot de passe.</span>
+              </div>
+
+              <div *ngIf="userForm.errors?.['passwordsMismatch']">
+                <span class="error">Le nouveau mot de passe et le mot de passe de confirmation sont différents.</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="form-column">
+          <div class="card-body">
+            <label for="categories">Préférences:</label>
+            <mat-chip-listbox id="categories" class="mat-mdc-chip-set-stacked" aria-label="Color selection"
+                              [multiple]="true">
+                <mat-chip-option *ngFor="let category of categories" [selected]="isCategorySelected(category)" [value]="category.id"
+                                 (selectionChange)="onCategoryChange(category, $event.selected)">{{ category.category }}
+                </mat-chip-option>
+            </mat-chip-listbox>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <section class="section_2_menu d-flex flex-column justify-content-center align-items-center mt-5">
+      <nav class="container">
+        <div class="row d-flex justify-content-center mt-4">
+          <button type="submit">Enregistrer</button>
+        </div>
+      </nav>
+    </section>
+  </form>
+</div>

@@ -1,0 +1,38 @@
+@use "variables" as v;
+img {
+  border-radius: 50%;
+  object-fit: cover;
+  overflow: hidden;
+
+
+}
+.profilePic{
+  margin-right: -20px;
+  // padding: -1000px;
+}
+.osef{
+  margin: 1000px;
+}
+
+.adminPage {
+  background-color: v.$light-green;
+  min-height: v.$min-body-height;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    max-width: 1200px;
+  }
+
+  .mat-table {
+    overflow: auto;
+    max-height: 500px;
+
+    .mat-header-cell.profile-header-cell, .mat-cell.profile-cell {
+      width: clamp(50px, 5vw, 80px) !important;
+
+    }
+
+  }
+}

@@ -1,0 +1,79 @@
+@use "variables" as v;
+
+.container {
+  min-height: v.$min-body-height;
+  background-color: v.$light-green;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+}
+
+section {
+  display: table;
+}
+
+mat-card {
+  width: 100%;
+  margin: 10px auto;
+  max-width: 500px;
+}
+
+mat-form-field {
+  display: block;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.mat-raised-button {
+  display: table-cell;
+  max-width: 600px;
+  background-color: rgba(76, 162, 168, 0.2);
+  padding: 10px 20px;
+  color: black;
+}
+
+button {
+  margin: 25px;
+  background-color: rgb(76, 162, 168, 20%);
+  font-weight: bold;
+  font-family: "Mulish", serif;
+  color: black;
+  border: 1px solid #ACD4D7;
+  padding: 10px 20px;
+  text-align: center;
+  text-transform: uppercase;
+  box-shadow: 0 4px 4px rgb(99, 99, 99, 25%), inset 0 4px rgb(99, 99, 99, 5%);
+  transition: all 0.3s ease;
+
+}
+
+.error {
+  margin-top: -19px;
+  color: red;
+  font-size: 12px;
+}
+
+button:hover {
+  border-width: 2px;
+  font-size: 110%;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.example-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}
+

@@ -1,0 +1,61 @@
+.container-barre-recherche {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px;
+}
+.container-barre-recherche input{
+  font-size: 15px;
+  width: 35%;
+  padding: 5px;
+  border-radius: 50px;
+  text-align: center;
+}
+button {
+  margin: 25px;
+  background-color: rgb(76, 162,168, 20%);
+  font-weight: bold;
+  font-family: "Mulish", serif;
+  color: black;
+  border: 1px solid #ACD4D7;
+  padding: 10px 20px;
+  text-align: center;
+  text-transform: uppercase;
+  box-shadow: 0 4px 4px rgb(99,99,99,25%), inset 0 4px rgb(99,99,99,5%);
+  transition: all 0.3s ease;
+}
+button:hover {
+  border-width: 2px;
+}
+p {
+  font-weight: bold;
+  font-family: "Mulish", serif;
+  color: black;
+}
+.filters {
+  display: flex;
+  //justify-content: center;
+  margin-left: 150px;
+  margin-bottom: 20px;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+select {
+  margin: 20px;
+  padding-right: 20px;
+  background: rgba(217, 217, 217, 0.78);
+}
+.picture-book {
+  filter: brightness(80%);
+  margin: 10px;
+  transition: filter 1000ms, transform 300ms;
+}
+.picture-book:hover {
+  transform: scale(1.15);
+  filter: brightness(100%);
+  cursor:pointer;
+}

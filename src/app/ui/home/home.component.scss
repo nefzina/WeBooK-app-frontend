@@ -1,104 +1,152 @@
 @use "variables" as v;
 
 .container-presentation {
-  padding: 20px;
+  max-width: v.$max-screen-width;
+  margin: 0 auto;
+  padding: 40px 20px 20px;
   width: 100%;
-  height: calc(100vh - 80px);
+  height: fit-content;
   position: relative;
   overflow: hidden;
-
-  .banner-img {
-    max-width: 60%;
-    object-fit: cover;
-    position: absolute;
-    right: 0;
-    top: 50px;
-  }
+  background-color: v.$light-green;
 
   h1 {
-    color: #333;
-    font-family: "Cinzel Decorative", serif;
+    color: v.$text-color;
+    font-family: v.$title-font;
     font-weight: bold;
     text-align: left;
-    font-size: 30px;
+    font-size: clamp(1.5rem, 1.6vw, 3rem);
     width: 100%;
-    max-width: 300px;
-    line-height: 50px;
+    line-height: 40px;
+    margin: 0;
+    text-align: center;
   }
 
   p {
     color: black;
-    font-family: "Mulish", serif;
-    text-align: left;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    font-family: v.$text-font;
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    line-height: 30px;
+    text-align: center;
+    margin: 30px auto 40px;
     width: 100%;
     max-width: 400px;
   }
-}
 
-button {
-  margin: 25px;
-  background-color: rgb(76, 162, 168, 20%);
-  font-weight: bold;
-  font-family: "Mulish", serif;
-  color: black;
-  border: 1px solid #ACD4D7;
-  padding: 10px 20px;
-  text-align: center;
-  text-transform: uppercase;
-  box-shadow: 0 4px 4px rgb(99, 99, 99, 25%), inset 0 4px rgb(99, 99, 99, 5%);
-}
-
-button:hover {
-  background-color: v.$medium-green;
-}
-
-.recommendation-title {
-  margin-top: 50px;
-  padding: 50px;
-  color: #333;
-  font-family: "Cinzel Decorative", serif;
-  font-size: 24px;
-  font-weight: bold;
-  text-align: left;
-}
-
-.container-recommendation {
-  display: flex;
-  padding-right: 50px;
-  padding-left: 50px;
-  flex-wrap: wrap;
-  justify-content: space-around;
-
-  .picture-book {
-    width: 175px;
-    height: auto;
-    margin: 10px;
-    cursor: pointer;
-  }
-
-  .picture-book:hover {
-    transform: scale(1.15);
-    filter: none;
-    transition: 0.2s;
-  }
-}
-
-@media screen and (min-width: 750px){
-  .container-presentation {
-    padding: 50px;
+  .buttons {
     width: 100%;
-    height: calc(100vh - 80px);
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    button {
+      font-size: clamp(0.6rem, 1.4vw, 1rem);
+      background-color: rgb(76, 162, 168, 20%);
+      font-weight: bold;
+      font-family: v.$text-font;
+      color: black;
+      border: 1px solid #acd4d7;
+      padding: 10px 15px;
+      text-align: center;
+      text-transform: uppercase;
+      box-shadow: 0 4px 4px rgb(99, 99, 99, 25%),
+        inset 0 4px rgb(99, 99, 99, 5%);
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: v.$medium-green;
+    }
+  }
+
+  .heroBanner {
     position: relative;
-    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 21/9;
+    margin: 40px auto;
 
     .banner-img {
-      max-width: 60%;
+      width: calc(100% - 10px);
       object-fit: cover;
+      aspect-ratio: 21/9;
       position: absolute;
+      top: 0;
       right: 0;
-      top: 50px;
+      object-position: 0% 60%;
+    }
+
+    .imgBackground {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: calc(100% - 10px);
+      aspect-ratio: 21/9;
+      background-color: v.$medium-green;
+    }
+  }
+
+  .recommendation-title {
+    margin-top: 50px;
+    padding: 50px;
+    color: #333;
+    font-family: v.$title-font;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .recommendation-container {
+    display: flex;
+    padding-right: 50px;
+    padding-left: 50px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    .picture-book {
+      width: 175px;
+      height: auto;
+      margin: 10px;
+      cursor: pointer;
+    }
+
+    .picture-book:hover {
+      transform: scale(1.15);
+      filter: none;
+      transition: 0.2s;
+    }
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .container-presentation {
+    padding: 50px;
+    display: grid;
+    gap: 20px;
+    padding-right: 0;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: 2fr 1fr 1fr;
+    height: clamp(450px, 55vw, 630px);
+
+    .heroBanner {
+      aspect-ratio: 4/5;
+      grid-column-start: 2;
+      grid-row-start: 1;
+      grid-row-end: 3;
+      margin-top: 0;
+
+      .banner-img,
+      .imgBackground {
+        aspect-ratio: 4/5;
+      }
+    }
+
+    h1,
+    p,
+    .buttons {
+      grid-column-start: 1;
+      grid-column-end: 1;
     }
 
     h1 {
@@ -106,31 +154,20 @@ button:hover {
       width: 100%;
       line-height: 70px;
       max-width: 400px;
+      text-align: left;
     }
 
     p {
-      color: black;
-      font-family: "Mulish", serif;
       text-align: left;
-      margin-top: 50px;
-      margin-bottom: 50px;
+      margin: 30px 0;
       width: 100%;
       max-width: 400px;
     }
-  }
 
-  button {
-    margin: 25px;
-    background-color: rgb(76, 162, 168, 20%);
-    font-weight: bold;
-    font-family: "Mulish", serif;
-    color: black;
-    border: 1px solid #ACD4D7;
-    padding: 10px 20px;
-    text-align: center;
-    text-transform: uppercase;
-    box-shadow: 0 4px 4px rgb(99, 99, 99, 25%), inset 0 4px rgb(99, 99, 99, 5%);
-    transition: all 0.3s ease;
+    .buttons {
+      // width: 350px;
+      justify-content: flex-start;
+    }
   }
 
   .recommendation-title {
@@ -160,5 +197,56 @@ button:hover {
       filter: none;
       transition: 0.2s;
     }
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .container-presentation {
+    grid-template-columns: 1fr 1fr;
+    .heroBanner {
+      aspect-ratio: 1;
+      margin: 0;
+
+      .banner-img,
+      .imgBackground {
+        aspect-ratio: 1;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 950px) {
+  .container-presentation {
+    grid-template-columns: 7fr 10fr;
+    grid-template-rows: 3fr 2fr 2fr;
+    grid-column-gap: 50px;
+
+    .heroBanner {
+      aspect-ratio: 6/5;
+      .banner-img,
+      .imgBackground {
+        aspect-ratio: 6/5;
+        width: calc(100% - 20px);
+      }
+
+      .imgBackground {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+    }
+
+    .buttons {
+      width: 100%;
+      button {
+        padding: 15px 14px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1020px) {
+  .container-presentation {
+    grid-template-rows: 4fr 3fr 3fr;
   }
 }

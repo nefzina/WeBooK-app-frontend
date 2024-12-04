@@ -34,7 +34,6 @@ export class HeaderComponent {
       this.isLoggedIn = status;
     })
     this.role = localStorage.getItem("role");
-
   }
 
   toggleMenu() {

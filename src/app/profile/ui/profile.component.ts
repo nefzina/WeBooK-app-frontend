@@ -6,6 +6,7 @@ import {RouterLink, RouterLinkActive} from "@angular/router";
 import {UploadService} from "../../domain/services/upload.service";
 import {UserIdService} from "../../domain/services/userId.service";
 import {environment} from "../../../environments/environment";
+import { ApiService } from '../../domain/services/api.service';
 
 @Component({
   selector: 'app-profile',
@@ -24,14 +25,13 @@ export class ProfileComponent implements OnInit {
   user!: IUser;
   defaultProfilePic: String = '../../../assets/profile.png';
 
-  constructor(private profileService: ProfileService,
+  constructor(private profileService: ProfileService, private apiService: ApiService,
               private uploadService: UploadService, private userIdService: UserIdService) {
   }
 
   ngOnInit() {
     this.userIdService.getUserId.subscribe(id => {
       this.id = id;
-      console.log("profilePge", id)
     });
     if (!!this.id) {
       this.profileService.getUserById(this.id).subscribe((response) => {
@@ -54,7 +54,7 @@ export class ProfileComponent implements OnInit {
     )
   }
 
-  getImageUrl(filename: string): string {
-    return `${environment.API_URL}/uploads/${filename}`;
+  getImageSrc(filename: string): string{
+    return this.apiService.getImageUrl(filename);
   }
 }

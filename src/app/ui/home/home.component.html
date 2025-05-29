@@ -23,7 +23,36 @@
 <h2 class="recommendation-title">Recommandation</h2>
 
 <div class="recommendation-container">
-  <a *ngFor="let mockBook of mockBooks" [routerLink]="['page-book']">
-    <img class="picture-book" [src]="mockBook.image" alt="book picture" />
-  </a>
+  <div *ngIf="!id" class="notConnected">
+    <p>Connectez vous pour des recommendations de livres personnalisées</p>
+    <button mat-flat-button class="btn1" routerLink="/login">Se connecter</button>
+  </div>
+
+  <div *ngIf="id && !preferences.length">
+    <p>Choisissez vos categories favorites pour des recommendations</p>
+
+    <a routerLinkActive="active" routerLink="/update-profile">
+      Modifier mes préférences
+    </a>
+  </div>
+
+  <div *ngIf="id && preferences.length">
+    <div *ngFor="let category of preferences">
+      <h3>{{ category.category }}</h3>
+      <div *ngIf="booksByCategory[category.id]?.length; else noBooks">
+        <ul>
+          <li *ngFor="let book of booksByCategory[category.id]">
+            <a [routerLink]="['/book-details', book.id]">
+              <img [src]="getImageSrc(book.coverImage.filename)" [alt]="book.title" [title]="book.title">
+              <strong>{{ book.title }}</strong> - {{ book.author }}
+            </a>
+          </li>
+        </ul>
+      </div>
+      <ng-template #noBooks>
+        <p>Aucun livre disponible pour cette catégorie.</p>
+      </ng-template>
+    </div>
+
+  </div>
 </div>

@@ -1,48 +1,56 @@
-<div class="background_image_2">
+<div class="background_image">
   <form [formGroup]="bookForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data" class="form-container">
     <div class="form-title">
       <h2>Pour ajouter un livre, veuillez renseignez les informations suivantes</h2>
     </div>
-    <section class="section_1_discover">
+    <!-- <section class="section_1_discover"> -->
       <div class="form-row">
         <div class="form-column">
           <div class="card-body">
-            <label for="coverImage">Couverture du livre:</label><br>
-            <input type="file" id="coverImage" formControlName="coverImage" (change)="onFileSelected($event)"><br>
-            <img [src]="selectedImage" class="img-fluid rounded-0" alt="Cover Image" *ngIf="selectedImage"><br>
+            <label for="coverImage">Couverture du livre:</label>
+            <input type="file" id="coverImage" formControlName="coverImage" (change)="onFileSelected($event)">
+            <img [src]="selectedImage" class="img-fluid rounded-0" alt="Cover Image" *ngIf="selectedImage">
             <hr>
-            <label for="resume">Résumé:</label><br>
-            <textarea id="resume" formControlName="resume"></textarea><br>
-            <label for="review">Commentaire:</label><br>
-            <textarea type="text" id="review" formControlName="review"></textarea><br>
+            <label for="resume">Résumé:</label>
+            <textarea id="resume" formControlName="resume"></textarea>
+            <label for="review">Commentaire:</label>
+            <textarea type="text" id="review" formControlName="review"></textarea>
           </div>
         </div>
         <div class="form-column form-column-reduced">
           <div class="card-body">
-            <label for="title">Titre du livre:</label><br>
-            <input type="text" id="title" formControlName="title"><br>
-            <label for="author">Auteur:</label><br>
-            <input type="text" id="author" formControlName="author"><br>
-            <label for="edition">Edition:</label><br>
-            <input type="text" id="edition" formControlName="edition"><br>
-            <label for="isbn">ISBN:</label><br>
-            <input type="text" id="isbn" formControlName="isbn"><br>
-
-            <label for="categoryId">Catégorie:</label><br>
+            <label for="title">Titre du livre:</label>
+            <input type="text" id="title" formControlName="title">
+            <div *ngIf="bookForm.get('title')?.hasError('pattern') && bookForm.get('title')?.touched">
+              <span class="error">Le champ doit contenir minimum 1 caractère et ne peut inclure que des lettres, des chiffres, des espaces, ou les caractères spéciaux suivants : - _ , ! ? +</span>
+            </div>
+            <label for="author">Auteur:</label>
+            <input type="text" id="author" formControlName="author">
+            <div *ngIf="bookForm.get('author')?.hasError('pattern') && bookForm.get('author')?.touched">
+              <span class="error">Le champ ne peut inclure que des lettres et des espaces.</span>
+            </div>
+            <label for="edition">Edition:</label>
+            <input type="text" id="edition" formControlName="edition">
+            <label for="isbn">ISBN:</label>
+            <input type="text" id="isbn" formControlName="isbn">
+            <div *ngIf="bookForm.get('isbn')?.hasError('pattern') && bookForm.get('isbn')?.touched">
+              <span class="error">Le champ doit contenir 10 ou 13 caractères, composé uniquement de chiffres ou de la lettre 'X' (majuscules ou minuscules). Les groupes peuvent être séparés par des tirets (-) ou des espaces.</span>
+            </div>
+            <label for="categoryId">Catégorie:</label>
             <select id="categoryId" formControlName="categoryId">
               <option *ngFor="let category of categories" [value]="category.id">{{ category.category }}</option>
-            </select><br>
+            </select>
           </div>
         </div>
       </div>
 
-    </section>
-    <section class="section_2_menu d-flex flex-column justify-content-center align-items-center mt-5">
+    <!-- </section>
+    <section class="section_2_menu d-flex flex-column justify-content-center align-items-center mt-5"> -->
       <nav class="container">
         <div class="row d-flex justify-content-center mt-4">
           <button type="submit">Enregistrer</button>
         </div>
       </nav>
-    </section>
+    <!-- </section> -->
   </form>
 </div>

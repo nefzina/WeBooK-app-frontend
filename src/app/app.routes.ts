@@ -16,7 +16,7 @@ export const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'book-details/:id', component: BookDetailComponent},
   {path: 'page-book/:id', component: PageBookComponent},
-  {path: 'recherche', component: PageRechercheComponent},
+  {path: 'search', component: PageRechercheComponent},
   {path: 'addBook', component: AddBookComponent, canActivate: [AuthGuard]},
   {path: 'updateBook/:id', component: UpdateBookComponent},
   {

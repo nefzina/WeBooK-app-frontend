@@ -52,7 +52,7 @@
       text-align: center;
       text-transform: uppercase;
       box-shadow: 0 4px 4px rgb(99, 99, 99, 25%),
-        inset 0 4px rgb(99, 99, 99, 5%);
+      inset 0 4px rgb(99, 99, 99, 5%);
       transition: all 0.3s ease;
     }
 
@@ -86,23 +86,41 @@
       background-color: v.$medium-green;
     }
   }
-
+}
   .recommendation-title {
-    margin-top: 50px;
-    padding: 50px;
-    color: #333;
+    margin : 80px auto 40px;
+    padding-left: 10px;
+    color: v.$text-color;
     font-family: v.$title-font;
     font-size: 24px;
     font-weight: bold;
     text-align: left;
+    max-width: v.$max-screen-width;
   }
 
   .recommendation-container {
     display: flex;
-    padding-right: 50px;
-    padding-left: 50px;
+    padding-right: 10px;
+    padding-left: 10px;
     flex-wrap: wrap;
     justify-content: space-around;
+    max-width: v.$max-screen-width;
+    margin : 0 auto 60px;
+
+    .notConnected{
+      p {
+        margin-bottom: 20px;
+      }
+      .mat-mdc-unelevated-button {
+        background-color: v.$dark-green;
+        color: white;
+
+        &:hover {
+          color: v.$text-color;
+          background-color: v.$medium-green;
+        }
+      }
+    }
 
     .picture-book {
       width: 175px;
@@ -117,7 +135,6 @@
       transition: 0.2s;
     }
   }
-}
 
 @media screen and (min-width: 750px) {
   .container-presentation {

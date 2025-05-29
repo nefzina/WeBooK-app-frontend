@@ -1,28 +1,33 @@
 <header>
-  <div class="links">
-    <a [routerLink]="['home']">Accueil</a>
-    <a class="reseachDesktop" [routerLink]="['recherche']">Recherche</a>
-    <span class="webook">WeBooK</span>
-    <a [routerLink]="['conversation']">Conversation</a>
-    <a class="guideDesktop" [routerLink]="['guide']">Guide</a>
+  <div class="flex-container">
+    <div class="links">
+      <a class="webook" routerLink="/home">WeBooK</a>
+      <a class="desktopLinks" routerLink="/search" routerLinkActive="active">Chercher</a>
+      <a class="desktopLinks" routerLink="/addBook" routerLinkActive="active">Publier</a>
+    </div>
+
+    <div class="btns-container">
+      <button mat-flat-button class="logInBtn" *ngIf="!isLoggedIn" routerLink="/login">Se connecter</button>
+      <button class="msgBtn" *ngIf="isLoggedIn" routerLink="/conversation">
+        <img
+          src="assets/message.png"
+          alt="messages et conversations">
+      </button>
+      <button class="profileBtn" *ngIf="isLoggedIn" routerLink="/profile">
+        <img
+          [src]="!user.profilePicture ? defaultProfilePic : getImageSrc(user.profilePicture.filename)"
+          alt="your profile picture">
+      </button>
+      <button class="menu-button" (click)="toggleMenu()">☰</button>
+    </div>
   </div>
 
-<!--  &lt;!&ndash; Menu pour desktop/tablet &ndash;&gt;-->
-<!--  <div *ngIf="isLoggedIn=='true'" class="profileLink desktop">-->
-<!--    <img class="miniature_profile" src="../../../assets/profile.png" alt="Profile Picture">-->
-<!--    <a routerLinkActive="active" routerLink="/profile">Mon profil</a>-->
-<!--    <a *ngIf="role=='admin'" routerLinkActive="active" routerLink="/back-office">Admin</a>-->
-<!--    <button (click)="onLogoff()">Déconnexion</button>-->
-<!--  </div>-->
-
-  <button class="logInBtn" *ngIf="!isLoggedIn" routerLink="/login">Connexion</button>
-  <button *ngIf="isLoggedIn" class="menu-button" (click)="toggleMenu()">☰</button>
-
-  <div class="menu" *ngIf="isMenuOpen && isLoggedIn">
-    <a routerLink="/profile">Mon profil</a>
-    <a *ngIf="role=='admin'" routerLink="/back-office">Admin</a>
-    <a class="reseachMobile" [routerLink]="['recherche']">Recherche</a>
-    <a class="guideMobile" routerLinkActive="active" routerLink="/guide">Guide</a>
-    <button (click)="onLogoff()">Déconnexion</button>
+  <div class="menu" *ngIf="isMenuOpen">
+    <a *ngIf="role=='admin' && isLoggedIn" routerLink="/back-office" (click)="toggleMenu()">Dashboard</a>
+    <a class="mobileLinks" routerLink="/search" (click)="toggleMenu()">Chercher</a>
+    <a class="mobileLinks" routerLink="/addBook" (click)="toggleMenu()">Publier</a>
+    <a routerLink="/profile" (click)="toggleMenu()">Messages</a>
+    <a routerLink="/guide" (click)="toggleMenu()">Guide</a>
+    <a routerLink="/login" *ngIf="isLoggedIn" (click)="onLogoff()">Se déconnecter</a>
   </div>
 </header>

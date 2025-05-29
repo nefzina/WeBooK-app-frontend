@@ -28,7 +28,7 @@ export class ApiService {
     })
   }
 
-  post<T>(endpoint: string, body: Book | IUser | LoginRequestDto | User): Observable<T> {
+  post<T>(endpoint: string, body: Book | IUser | LoginRequestDto | User | FormData): Observable<T> {
     return this.http.post<T>(`${environment.API_URL}/${endpoint}`, body, {
       withCredentials: true,
     });
@@ -56,5 +56,9 @@ export class ApiService {
     return this.http.delete<T>(`${environment.API_URL}/${endpoint}/${id}`, {
       withCredentials: true,
     })
+  }
+
+  getImageUrl(filename: string): string {
+    return `${environment.API_URL}/uploads/${filename}`;
   }
 }

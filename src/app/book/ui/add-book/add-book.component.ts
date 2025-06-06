@@ -38,15 +38,14 @@ export class AddBookComponent implements OnInit {
     private router: Router,
     private categoryService: CategoryService,
     private userIdService: UserIdService,
-    private bookService : BookService
+    private bookService: BookService
   ) {
     this.bookForm = this.fb.group({
       title: ['', Validators.pattern(this.regex.title)],
       author: ['', Validators.pattern(this.regex.author)],
       edition: [''],
       review: [''],
-      resume: [''],    
-      coverImage: [''],
+      resume: [''],
       isbn: ['', Validators.pattern(this.regex.isbn)],
       categoryId: ['', Validators.required],
     });
@@ -54,6 +53,7 @@ export class AddBookComponent implements OnInit {
 
   coverImage!: IMedia;
   fileEvent!: Event;
+  input!: HTMLInputElement;
 
   ngOnInit(): void {
     this.loadCategories();
@@ -74,9 +74,9 @@ export class AddBookComponent implements OnInit {
 
   onFileSelected(event: Event): void {
     this.fileEvent = event;
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files[0]) {
-      const file = input.files[0];
+    this.input = event.target as HTMLInputElement;    // Check if the event target is an instance of HTMLInputElement
+    if (this.input.files && this.input.files[0]) {
+      const file = this.input.files[0];
       const reader = new FileReader();
       reader.onload = (e) => {
         const img = new Image();
@@ -84,7 +84,7 @@ export class AddBookComponent implements OnInit {
           const canvas = document.createElement('canvas');
           const ctx = canvas.getContext('2d');
           if (ctx) {
-            const maxSize = 300; // Taille maximale souhaitée
+            const maxSize = 300;
             let width = img.width;
             let height = img.height;
             if (width > height) {
@@ -112,11 +112,15 @@ export class AddBookComponent implements OnInit {
   }
 
   createBook() {
+    if (!this.input.files?.[0]) {
+      throw new Error('No file selected.');
+    }
+
     const newBook: Book = this.bookForm.value;
     newBook.bookCategory =
-        this.categories[this.bookForm.get(['categoryId'])?.value - 1];
-    
-    this.bookService.createBook(newBook, this.fileEvent).subscribe({
+      this.categories[this.bookForm.get(['categoryId'])?.value - 1];
+
+    this.bookService.createBook(newBook, this.input).subscribe({
       next: (res) => {
         this.router.navigate(['/profile']);
         return res;

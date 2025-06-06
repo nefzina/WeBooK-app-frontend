@@ -108,6 +108,8 @@
     margin : 0 auto 60px;
 
     .notConnected{
+      width: 100%;
+
       p {
         margin-bottom: 20px;
       }
@@ -195,7 +197,7 @@
     text-align: left;
   }
 
-  .container-recommendation {
+  .recommendation-container {
     display: flex;
     padding-right: 50px;
     padding-left: 50px;

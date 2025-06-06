@@ -1,6 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Book } from '../models/book';
-import { BehaviorSubject, catchError, forkJoin, map, Observable, of, tap } from 'rxjs';
+import {
+  BehaviorSubject,
+  catchError,
+  forkJoin,
+  map,
+  Observable,
+  of,
+  tap,
+} from 'rxjs';
 import { ɵFormGroupValue, ɵTypedOrUntyped } from '@angular/forms';
 import { Author } from '../../../book/domain/models/author';
 import { environment } from '../../../../environments/environment';
@@ -86,20 +94,17 @@ export class BookService {
     );
   }
 
-  createBook(book: Book, event: Event): Observable<Book> {
+  createBook(book: Book, inputElement: HTMLInputElement): Observable<Book> {
     const formData = new FormData();
     formData.append(
       'book',
       new Blob([JSON.stringify(book)], { type: 'application/json' })
     );
 
-    // Check if the event target is an instance of HTMLInputElement
-    const input = event.target as HTMLInputElement;
-
     // Check if the input element has files
-    if (input.files?.length) {
-      const file: File = input.files[0];
-      formData.append('coverImage', file);
+    if (inputElement.files?.length) {
+      const file: File = inputElement.files[0];
+      formData.append('file', file);
 
       return this.apiService.post<Book>('books', formData).pipe(
         tap((response) => {

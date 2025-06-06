@@ -8,7 +8,7 @@
         <div class="form-column">
           <div class="card-body">
             <label for="coverImage">Couverture du livre:</label>
-            <input type="file" id="coverImage" formControlName="coverImage" (change)="onFileSelected($event)">
+            <input type="file" id="coverImage" (change)="onFileSelected($event)">
             <img [src]="selectedImage" class="img-fluid rounded-0" alt="Cover Image" *ngIf="selectedImage">
             <hr>
             <label for="resume">Résumé:</label>

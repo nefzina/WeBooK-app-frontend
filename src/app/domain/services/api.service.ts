@@ -19,13 +19,13 @@ export class ApiService {
     return this.http.get<T>(`${environment.API_URL}/${endpoint}`, {
       // headers: this.getAuthHeaders(),
       withCredentials: true,
-    })
+    });
   }
 
   getById<T>(id: number, endpoint: string): Observable<T> {
     return this.http.get<T>(`${environment.API_URL}/${endpoint}/${id}`, {
       withCredentials: true,
-    })
+    });
   }
 
   post<T>(endpoint: string, body: Book | IUser | LoginRequestDto | User | FormData): Observable<T> {

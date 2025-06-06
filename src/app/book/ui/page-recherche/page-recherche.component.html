@@ -1,34 +1,52 @@
-<div class="container-barre-recherche">
-  <p>Recherche avec un mot clé ou la carte</p>
-  <input [(ngModel)]="searchText" placeholder="Recherche avec mot clé ou code postal" (input)="onSearchChange()">
-<!--         (keyup.enter)="searchBooks()"-->
+<div class="search-page">
+  <div class="search-container">
+    <p class="search-title">Recherche avec un mot clé ou la carte</p>
 
-  <div *ngFor="let suggestion of filteredSuggestions">
-    <div (click)="selectSuggestion(suggestion)">
-      {{suggestion}}
+    <div class="searchBar">
+      <input
+        #keyword
+        placeholder="Titre ou auteur"
+        (keyup.enter)="searchBooks(keyword.value)"
+      />
+      <button class="searchBtn">
+        <img
+          src="assets/loop.png"
+          alt="loupe de recherche"
+          (click)="searchBooks(keyword.value)"
+        />
+      </button>
     </div>
   </div>
-  <button >Afficher carte</button>
-</div>
 
-<div class="filters">
-  <p>Filtrez par :</p>
-  <select name="category" (selectionchange)="onCategoryChange($event)">
-    <option value="">- Catégories -</option>
-    <option *ngFor="let category of categories" [value]="category.id">{{category.category}}</option>
-  </select>
-  <select name="author">
-    <option value="">- Auteur -</option>
-    <option *ngFor="let auteur of authors" [value]="auteur">{{auteur}}</option>
-  </select>
-  <select name="map">
-    <option value="">- Localisation -</option>
-    <option *ngFor="let location of locations" [value]="location">{{location}}</option>
-  </select>
-</div>
+  <button
+    class="openFilters"
+    *ngIf="!isFiltersMenuDisplayed"
+    (click)="openFiltersMenu()"
+  >
+    <p>Filtres</p>
+    <img src="/assets/right_arrows.png" />
+  </button>
 
-<div class="container-resultat-recherche">
-  <a *ngFor="let mockBook of mockBooks" [routerLink]="['page-book', mockBook.id]">
-    <img class="picture-book" [src]="mockBook.image" alt="book picture">
-  </a>
+  <div class="filters" *ngIf="isFiltersMenuDisplayed">
+    <button (click)="closeFiltersMenu()">
+      <img src="/assets/right_arrows.png" />
+    </button>
+    <p>Filtrez par :</p>
+    <select name="category" (change)="onCategoryChange($event)">
+      <option value="">- Catégories -</option>
+      <option *ngFor="let category of categories" [value]="category.id">
+        {{ category.category }}
+      </option>
+    </select>
+  </div>
+
+  <div class="search-result">
+    <a *ngFor="let book of books" [routerLink]="['page-book', book.id]">
+      <img
+        class="picture-book"
+        [src]="getImageSrc(book.coverImage.filename)"
+        [alt]="book.title"
+      />
+    </a>
+  </div>
 </div>
